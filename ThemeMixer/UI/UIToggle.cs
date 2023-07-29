@@ -5,7 +5,7 @@ using ICities;
 using ThemeMixer.Resources;
 using ThemeMixer.Serialization;
 using UnityEngine;
-using UnityEngine.UI;
+using UnifiedUI.Helpers;
 
 namespace ThemeMixer.UI
 {
@@ -69,6 +69,16 @@ namespace ThemeMixer.UI
                 Debug.LogError("Invalid hotkey: " + hotkeyString);
                 UIView.library.ShowModal<ExceptionPanel>("ExceptionPanel").SetMessage("Hotkey Save Error", "Failed to save the hotkey settings.", true);
             }
+
+
+            // Add UUI button.
+            var uuiButton = UUIHelpers.RegisterCustomButton(
+                name: (Mod.Instance as Mod)?.Name,
+                groupName: null, // default group
+                tooltip: (Mod.Instance as Mod)?.Name,
+                icon: UISprites.Atlas.GetSpriteTexture("UIToggleIcon"),
+                onToggle: (value) => SimulateClick()
+                );
         }
 
         public class LoadingExtension : LoadingExtensionBase

@@ -80,6 +80,7 @@
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="CitiesHarmony.API" Version="2.2.0" />
+		<PackageReference Include="UnifiedUILib" Version="2.2.12" />
 	</ItemGroup>
 	<ItemGroup>
 		<Reference Include="Assembly-CSharp" />
@@ -118,6 +119,7 @@
 		</PropertyGroup>
 		<Copy SourceFiles="$(TargetPath)" DestinationFolder="$(DeployDir)" />
 		<Copy SourceFiles="$(TargetDir)/CitiesHarmony.API.dll" DestinationFolder="$(DeployDir)" />
+		<Copy SourceFiles="$(TargetDir)/UnifiedUILib.dll" DestinationFolder="$(DeployDir)" />
 		<Copy SourceFiles="@(_Locales)" DestinationFolder="$(DeployDir)/Locale" />
 		<Copy SourceFiles="@(_Themes)" DestinationFolder="$(DeployDir)" />
 	</Target>
